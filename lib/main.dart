@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:provider_project/pages/HomePage.dart';
+import 'package:provider_project/widgets/counter_provider.dart';
 
 void main() {
   runApp(const MainApp());
@@ -9,11 +12,12 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: "PROVIDER",
+      home: ChangeNotifierProvider(
+        create: (_) => CounterProvider(),
+        child: Homepage(),
       ),
     );
   }
